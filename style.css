@@ -1,0 +1,107 @@
+:root {
+  --back-color: #2f3e46;
+  --quote-color: #cad2c5;
+  --border-color: #84a98c;
+  --aye-clor: #84a98c;
+  background-color: var(--back-color);
+}
+
+@font-face {
+  font-family: "qran";
+  src: url("../fonts/noorehidayat.ttf") format("woff2");
+}
+
+html {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "qran", sans-serif;
+  font-size: 16px;
+}
+*,
+::after,
+::before {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+
+
+#ayeh-container {
+  height: 100%;
+}
+#block-ayeh {
+  margin-left: 15%;
+  margin-left: 15%;
+  max-width: 70%;
+  position: relative;
+}
+.ayeh{
+  padding: 20px;
+  color: var(--quote-color);
+  border: 2px solid var(--border-color);
+  border-radius: 10px;
+  position: relative;
+  /* z-index: -5; */
+  margin: 80px auto;
+  text-align: center;
+}
+.ayeh::before {
+  content: "";
+  position: absolute;
+  width: 80px;
+  border: 6px solid var(--back-color);
+  bottom: -4px;
+  opacity: 100%;
+  left: 50px;
+  /* z-index: ; */
+}
+
+.ayeh::after {
+  content: "";
+  height: 60px;
+  position: absolute;
+  border-radius: 0 50px 0 0;
+  width: 50px;
+  border: 2px solid var(--border-color);
+  bottom: -60px;
+  left: 50px;
+  border-bottom: none;
+  border-left: none;
+  /* z-index: 3; */
+}
+
+#aye-info {
+  position: absolute;
+  top: 105%;
+  left: 130px;
+  color: var(--aye-clor);
+  font-size: large;
+}
+
+#nasel {
+  max-width: 10%;
+  opacity: 5%;
+  position: absolute;
+  bottom: 20px;
+  margin-left: 45%;
+  margin-right: 45%;
+}
+
+@media (min-width: 570px) {
+  .ayeh {
+    line-height: 3rem;
+  }
+
+  #ayeh-container {
+    height: 100hv;
+  }
+  #nasel {
+    /* opacity: 1%; */
+    max-width: 4%;
+    margin-left: 48%;
+    margin-right: 48%;
+  }
+}
+
