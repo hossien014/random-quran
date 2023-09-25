@@ -10,7 +10,7 @@ function genrateRadndomAyehNumber()
 
 function GetAyeh()
 {
-      let url = "http://api.alquran.cloud/v1/ayah/" + genrateRadndomAyehNumber();
+      let url = "https://api.alquran.cloud/v1/ayah/" + genrateRadndomAyehNumber();
 
       return new Promise
             (
