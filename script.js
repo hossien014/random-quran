@@ -52,17 +52,17 @@ function GetAyeh()
 
 
 
-function chang_lang(fa, ar,container)
+function chang_lang(fa, ar, container)
 {
       if (is_arbic)
       {
-            container.innerHTML=fa
+            container.innerHTML = fa
             is_arbic = false;
             change_more_elemnt()
       }
       else
       {
-            container.innerHTML=ar
+            container.innerHTML = ar
             is_arbic = true;
             change_more_elemnt()
       }
@@ -70,15 +70,17 @@ function chang_lang(fa, ar,container)
 }
 function change_more_elemnt()
 {
-      let  more =document.getElementById("more");
-      if(is_arbic){
+      let more = document.getElementById("more");
+      if (is_arbic)
+      {
 
-            more.style.opacity="90%"
-            more.style.boxShadow ="box-shadow: 120px 80px 40px 20px #0ff"
-            more.style.color ="#cad2c5;"
+            more.style.opacity = "90%"
+            more.style.boxShadow = "box-shadow: 120px 80px 40px 20px #0ff"
+            more.style.color = "#cad2c5;"
       }
-      else{
-            more.style.opacity="50%"
+      else
+      {
+            more.style.opacity = "50%"
 
 
       }
@@ -103,12 +105,26 @@ function insertAyeh()
             numberOfAyahs = (data['data'][0]['surah']['numberOfAyahs'])
             ayeh_container.innerHTML = ayah;
             ayehInfo.innerHTML = sourah + "-" + numberOfAyahs;
-            onclick = function () { chang_lang(fa, ayah,ayeh_container) }
+            onclick = function () { chang_lang(fa, ayah, ayeh_container) }
 
       }))
 
 }
 
-
-
 onload = insertAyeh();
+if ('serviceWorker' in navigator)
+{
+      navigator.serviceWorker.register('service-worker.js').
+            then(function (registeration)
+            {
+                  console.log('Service Worker registered with scope:', registeration.scope);
+
+            }
+
+            )
+            .catch(function (error)
+            {
+                  console.error('Service Worker registration failed:', error);
+
+            })
+}
