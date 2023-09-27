@@ -8,16 +8,16 @@
   background-color: var(--back-color);
 }
 
-@font-face {
+/* @font-face {
   font-family: "qran";
   src: url("noorehidayat.ttf") format("woff2");
-}
+} */
 
 html {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: "qran", sans-serif;
+  /* font-family: "qran", sans-serif; */
   font-size: 16px;
 }
 *,
@@ -96,7 +96,7 @@ html {
   top: -50px;
   border: none;
   background: var(--more-clor);
-  font-family: "qran";
+  /* font-family: "qran"; */
   cursor: pointer;
   border-radius: 5px;
   box-shadow: inset 0px 0px 5px 4px rgba(26, 36, 41, 0.315);
