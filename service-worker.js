@@ -23,3 +23,8 @@ self.addEventListener('fetch', function (event)
             })
       );
 });
+
+if (!navigator.onLine)
+{
+      console.log("offline")
+}
