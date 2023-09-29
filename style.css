@@ -8,17 +8,16 @@
   background-color: var(--back-color);
 }
 
-/* @font-face {
-  font-family: "qran";
+@font-face {
+  font-family:"qran";
   src: url("noorehidayat.ttf") format("woff2");
-} */
+}
 
 html {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  /* font-family: "qran", sans-serif; */
-  font-size: 16px;
+  font-family: "qran";
 }
 *,
 ::after,
@@ -46,6 +45,8 @@ html {
   /* z-index: -5; */
   margin: 80px auto;
   text-align: center;
+    font-family: "qran";
+
 }
 .ayeh::before {
   content: "";
@@ -78,6 +79,8 @@ html {
   left: 130px;
   color: var(--aye-clor);
   font-size: large;
+    font-family: "qran";
+
 }
 
 #nasel {

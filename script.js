@@ -9,10 +9,12 @@ function genrateRadndomAyehNumber()
       return random_number;
 }
 
+let d = "a";
 function GetAyeh()
 {
       editions = "/editions/quran-uthmani,fa.ansarian"
       let url = "https://api.alquran.cloud/v1/ayah/" + genrateRadndomAyehNumber() + editions;
+
       return new Promise
             (
                   (resolve, recject) =>
@@ -23,24 +25,21 @@ function GetAyeh()
                               (
                                     response =>
                                     {
-                                          if (!response.ok) { console.log("error"); }
-                                          return response.json();
+                                          if (!response.ok)
+                                          { console.log("error"); }
+                                          else
+                                          {
+                                                resolve(response.json());
+                                          }
 
                                     }
                               )
-                              .then
-                              (
-                                    data =>
-                                    {
-                                          ayeh = data;
-                                          resolve(ayeh);
-                                    }
-                              )
+
                               .catch
                               (
                                     error =>
                                     {
-                                          recject("error")
+                                          recject(error)
 
                                     }
                               )
@@ -88,30 +87,33 @@ function change_more_elemnt()
 }
 
 
-function insertAyeh()
+
+async function insertAyeh()
 {
-      GetAyeh().then((data =>
-      {
-            let ayah = "";
-            let fa = "__";
-            let sourah = "";
-            let numberOfAyahs = "";
-            const ayehInfo = document.querySelector('#aye-info');
-            const ayeh_container = document.querySelector('.ayeh');
-            fa = (data['data'][1]['text'])
-            ayah = (data['data'][0]['text'])
+      // برنامه را متوقف می کند تا جواب ایه بیاید
+      let data = await GetAyeh()
 
-            sourah = (data['data'][0]['surah']['name'])
-            numberOfAyahs = (data['data'][0]['surah']['numberOfAyahs'])
-            ayeh_container.innerHTML = ayah;
-            ayehInfo.innerHTML = sourah + "-" + numberOfAyahs;
-            onclick = function () { chang_lang(fa, ayah, ayeh_container) }
+      let ayah = "";
+      let fa = "__";
+      let sourah = "";
+      let numberOfAyahs = "";
+      const ayehInfo = document.querySelector('#aye-info');
+      const ayeh_container = document.querySelector('.ayeh');
 
-      }))
+      ayah = (data['data'][0]['text'])
+      fa = (data['data'][1]['text'])
+
+      sourah = (data['data'][0]['surah']['name'])
+      numberOfAyahs = (data['data'][0]['surah']['numberOfAyahs'])
+      ayeh_container.innerHTML = ayah;
+      ayehInfo.innerHTML = sourah + "-" + numberOfAyahs;
+
+      onclick = function () { chang_lang(fa, ayah, ayeh_container) }
 
 }
 
 onload = insertAyeh();
+
 if ('serviceWorker' in navigator)
 {
       navigator.serviceWorker.register('service-worker.js').

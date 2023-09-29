@@ -8,6 +8,7 @@ self.addEventListener('install', function (event)
                         '/index.html',
                         '/script.js',
                         '/style.css',
+                        '/noorehidayat.ttf'
                         // Add other assets to cache
                   ]);
             })
@@ -25,6 +26,6 @@ self.addEventListener('fetch', function (event)
 });
 
 if (!navigator.onLine)
-{
+{     
       console.log("offlin")
 }
